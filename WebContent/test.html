@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%;height:800px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+
+        // 指定图表的配置项和数据
+        var  option = {
+
+        
+            title: {
+                text: '热门景点销量',
+                subtext: '数据来自去哪儿网'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['四月份', '五月份']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: ['珠海长隆海洋王国','乐华城•乐华欢乐世界','黄山风景区','秦始皇陵博物院（兵马俑）','天涯海角','成都熊猫基地','故宫','上海迪士尼乐园']
+            },
+            series: [
+                {
+                    name: '四月份',
+                    type: 'bar',
+                    data: [7757, 7960, 8258, 8291, 9088, 11041,16660,58081]
+                },
+                {
+                    name: '五月份',
+                    type: 'bar',
+                    data: [9325, 7338, 7100, 12194, 8141, 8807,15445,75456]
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
